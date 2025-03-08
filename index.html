@@ -17,40 +17,48 @@
     <title>JS Flashcards</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <div class="main-card">
-      <h1 class="main-heading">JavaScript Flashcards</h1>
-
-      <!-- Sub Card-->
-      <div class="sub-card">
-        <!--Topic Selector-->
-        <div class="Topic-Selection">
-          <select id="selection-menu"></select>
+    <div class="container mt-5">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center">
+          <h1 class="m-0">JavaScript Flashcards</h1>
         </div>
-
-        <button id="start-btn">Start</button>
-        <button id="practice-btn">Practice</button>
-      </div>
-
-      <!-- Flash Cards-->
-      <div class="flash-card">
-        <div id="flash-qn-card">
-          <p id="flash-qn"></p>
+        <div class="card-body">
+          <!-- Controls -->
+          <div class="row mb-4">
+            <div class="col-md-4">
+              <select id="selection-menu" class="form-select">
+                <option selected disabled>Select Topic</option>
+                
+              </select>
+            </div>
+            <div class="col-md-8 d-flex justify-content-end align-items-center">
+              <button id="start-btn" class="btn btn-primary me-2">Start</button>
+              <button id="practice-btn" class="btn btn-primary">Practice</button>
+            </div>
+          </div>
+          <!-- Flash Card -->
+          <div class="card mb-3">
+            <div class="card-body">
+              <div id="flash-qn-card">
+                <p id="flash-qn" class="h4"></p>
+              </div>
+              <hr />
+              <div id="flash-ans-card">
+                <p id="flash-ans" class="h5 text-muted"></p>
+              </div>
+            </div>
+          </div>
+          <!-- Action Buttons -->
+          <div class="d-flex justify-content-center">
+            <button id="flip-btn" class="btn btn-primary me-2 d-none">Flip</button>
+            <button id="got-btn" class="btn btn-primary me-2 d-none">Got It</button>
+            <button id="next-btn" class="btn btn-primary me-2 d-none">Next</button>
+            <button id="exit-btn" class="btn btn-primary d-none">Exit</button>
+          </div>
         </div>
-        <div id="flash-ans-card">
-          <p id="flash-ans"></p>
-        </div>
-      </div>
-
-      <div class="flash-card-btn-container">
-        <button class="flip-btn d-none">Flip</button>
-        <button class="got-btn d-none">Got It</button>
-        <button id="next-btn" class="d-none">Next</button>
-        <button id="exit-btn" class="d-none">Exit</button>
       </div>
     </div>
-
     <script src="app.js"></script>
   </body>
 </html>

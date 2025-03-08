@@ -89,6 +89,9 @@ let nextBtn=document.getElementById("next-btn");
 let practiceBtn=document.getElementById("practice-btn");
 let exitBtn=document.getElementById("exit-btn");
 let startBtn=document.getElementById("start-btn");
+let flipBtn=document.getElementById("flip-btn");
+let gotBtn=document.getElementById("got-btn");
+
 
 
 
@@ -125,24 +128,31 @@ selectionElement.addEventListener("change",function(){
 
         nextBtn.classList.remove("d-none");
         exitBtn.classList.remove("d-none");
+
+
+
+
+
+        nextBtn.addEventListener("click",function(){
+            counter+=1;
+            if (counter<totalQns){
+                flashQn.textContent=topicContent[counter].front;
+                flashAns.textContent=topicContent[counter].back;
+                console.log(topicContent[counter].front);
+            }
+            
+        })
+    
+        exitBtn.addEventListener("click",function(){
+            flashQn.textContent="";
+            flashAns.textContent="";
+            counter=0;
+        })
         
         
     })
 
-    nextBtn.addEventListener("click",function(){
-        counter+=1;
-        if (counter<totalQns){
-            flashQn.textContent=topicContent[counter].front;
-            flashAns.textContent=topicContent[counter].back;
-            console.log(topicContent[counter].front);
-        }
-        
-    })
-
-    exitBtn.addEventListener("click",function(){
-        flashQn.textContent="";
-        flashAns.textContent="";
-    })
+    
 
 
 
@@ -153,8 +163,47 @@ selectionElement.addEventListener("change",function(){
         flashQn.textContent=topicContent[0].front;
         flashAns.classList.add("d-none");
         flashAns.textContent=topicContent[0].back;
+
+
+        nextBtn.classList.remove("d-none");
+        flipBtn.classList.remove("d-none");
+        gotBtn.classList.remove("d-none");
+
+
+
+        flipBtn.addEventListener("click",function(){
+            flashAns.classList.remove("d-none");
+        })
+    
+        nextBtn.addEventListener("click",function(){
+            counter+=1;
+            if (counter<totalQns){
+                flashQn.classList.remove("d-none");
+                flashQn.textContent=topicContent[counter].front;
+                flashAns.classList.add("d-none");
+                flashAns.textContent=topicContent[counter].back;
+                console.log(topicContent[counter].front);
+            }
+            
+        })
+    
+        let marks=0;
+    
+        gotBtn.addEventListener("click",function(){
+            marks+=1;
+            console.log(marks);
+        })
+    
+        
         
     })
+
+    
+    
+
+    
+
+    
 
 
     
