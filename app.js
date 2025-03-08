@@ -85,6 +85,8 @@ const flashcards = {
 let selectionElement = document.getElementById("selection-menu");
 let flashQn=document.getElementById("flash-qn");
 let flashAnd=document.getElementById("flash-ans")
+let nextBtn=document.getElementById("next-btn");
+let practiceBtn=document.getElementById("practice-btn");
 
 
 
@@ -102,7 +104,30 @@ for (topic of Object.keys(flashcards)){
 
 selectionElement.addEventListener("change",function(){
     userSelection=selectionElement.value;
+    topicContent=flashcards[userSelection]
     console.log(userSelection);
-    console.log(flashcards[userSelection]);
+    // console.log(topicContent);
+
+    const totalQns=topicContent.length;
+        console.log(totalQns);
+        
+    console.log();
+    let counter=0;    
+
+    nextBtn.addEventListener("click",function(){
+        counter+=1;
+        if (counter<totalQns){
+            flashQn.textContent=topicContent[counter].front;
+            console.log(topicContent[counter].front);
+        }
+        
+    })
+
+    practiceBtn.addEventListener("click",function(){
+        flashQn.textContent=topicContent[0].front;
+        console.log(topicContent[0].front);
+    })
+
+    
 
 })
