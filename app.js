@@ -185,22 +185,32 @@ selectionElement.addEventListener("change",function(){
             }
             
         })
+
+        
     
         let marks=0;
     
-        gotBtn.addEventListener("click",function(){
-            marks+=1;
+        gotBtn.addEventListener("click", function () {
+            marks += 1;
             console.log(marks);
-            counter+=1;
+            counter += 1;
             console.log(counter);
-            flashQn.textContent=topicContent[counter].front;
-            if (counter==totalQns){
-                document.getElementById("flash-qn-card").classList.add("d-none");
-                document.getElementById("flash-ans-card").classList.add("d-none");
-                document.getElementById("card-body").appendChild(document.createElement("p").textContent="Your marks are: "+marks);
-                
+            if (counter < totalQns) {
+              flashQn.textContent = topicContent[counter].front;
+              flashAns.classList.add("d-none");
+              flashAns.textContent = topicContent[counter].back;
+            } else if (counter === totalQns) {
+              document.getElementById("flash-qn-card").classList.add("d-none");
+              document.getElementById("flash-ans-card").classList.add("d-none");
+              let marksParagraph = document.createElement("p");
+              marksParagraph.textContent = "Your marks are: " + marks;
+              document.querySelector(".card-body").appendChild(marksParagraph);
+
+              flipBtn.classList.add("d-none");
+              gotBtn.classList.add("d-none");
             }
-        })
+          })
+        
     
         
         
