@@ -165,7 +165,7 @@ selectionElement.addEventListener("change",function(){
         flashAns.textContent=topicContent[0].back;
 
 
-        nextBtn.classList.remove("d-none");
+        
         flipBtn.classList.remove("d-none");
         gotBtn.classList.remove("d-none");
 
@@ -182,7 +182,6 @@ selectionElement.addEventListener("change",function(){
                 flashQn.textContent=topicContent[counter].front;
                 flashAns.classList.add("d-none");
                 flashAns.textContent=topicContent[counter].back;
-                console.log(topicContent[counter].front);
             }
             
         })
@@ -192,18 +191,20 @@ selectionElement.addEventListener("change",function(){
         gotBtn.addEventListener("click",function(){
             marks+=1;
             console.log(marks);
+            counter+=1;
+            console.log(counter);
+            flashQn.textContent=topicContent[counter].front;
+            if (counter==totalQns){
+                document.getElementById("flash-qn-card").classList.add("d-none");
+                document.getElementById("flash-ans-card").classList.add("d-none");
+                document.getElementById("card-body").appendChild(document.createElement("p").textContent="Your marks are: "+marks);
+                
+            }
         })
     
         
         
     })
-
-    
-    
-
-    
-
-    
 
 
     
