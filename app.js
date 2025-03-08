@@ -84,9 +84,10 @@ const flashcards = {
 // Selection Menu
 let selectionElement = document.getElementById("selection-menu");
 let flashQn=document.getElementById("flash-qn");
-let flashAnd=document.getElementById("flash-ans")
+let flashAns=document.getElementById("flash-ans")
 let nextBtn=document.getElementById("next-btn");
 let practiceBtn=document.getElementById("practice-btn");
+let exitBtn=document.getElementById("exit-btn");
 
 
 
@@ -114,18 +115,28 @@ selectionElement.addEventListener("change",function(){
     console.log();
     let counter=0;    
 
+    
+    //practice flashcards
+    practiceBtn.addEventListener("click",function(){
+        flashQn.textContent=topicContent[0].front;
+        flashAns.textContent=topicContent[0].back;
+        
+        
+    })
+
     nextBtn.addEventListener("click",function(){
         counter+=1;
         if (counter<totalQns){
             flashQn.textContent=topicContent[counter].front;
+            flashAns.textContent=topicContent[counter].back;
             console.log(topicContent[counter].front);
         }
         
     })
 
-    practiceBtn.addEventListener("click",function(){
-        flashQn.textContent=topicContent[0].front;
-        console.log(topicContent[0].front);
+    exitBtn.addEventListener("click",function(){
+        flashQn.textContent="";
+        flashAns.textContent="";
     })
 
     
