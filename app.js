@@ -88,6 +88,8 @@ let flashAns=document.getElementById("flash-ans")
 let nextBtn=document.getElementById("next-btn");
 let practiceBtn=document.getElementById("practice-btn");
 let exitBtn=document.getElementById("exit-btn");
+let startBtn=document.getElementById("start-btn");
+
 
 
 
@@ -120,6 +122,9 @@ selectionElement.addEventListener("change",function(){
     practiceBtn.addEventListener("click",function(){
         flashQn.textContent=topicContent[0].front;
         flashAns.textContent=topicContent[0].back;
+
+        nextBtn.classList.remove("d-none");
+        exitBtn.classList.remove("d-none");
         
         
     })
@@ -138,6 +143,19 @@ selectionElement.addEventListener("change",function(){
         flashQn.textContent="";
         flashAns.textContent="";
     })
+
+
+
+
+    //start test flashcards
+    startBtn.addEventListener("click",function(){
+        
+        flashQn.textContent=topicContent[0].front;
+        flashAns.classList.add("d-none");
+        flashAns.textContent=topicContent[0].back;
+        
+    })
+
 
     
 
